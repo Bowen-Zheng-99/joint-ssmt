@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "joint-ssmt"
+version = "0.1.0"
+description = "Joint SSMT: Bayesian state-space model for joint inference of oscillatory dynamics and point-process coupling"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Bowen Zheng"},
+]
+
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "jax>=0.4",
+    "jaxlib>=0.4",
+    "numba>=0.57",
+    "mne>=1.4",
+    "tqdm>=4.60",
+    "matplotlib>=3.7",
+    "seaborn>=0.12",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+gpu = ["jax[cuda12]>=0.4"]
+dev = [
+    "pytest>=7.0",
+    "pytest-timeout>=2.0",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+joint-ssmt = "joint_ssmt.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["joint_ssmt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+
+[tool.ruff]
+line-length = 100

@@ -1,0 +1,17 @@
+# Joint SSMT — Spectral estimation config (single-trial)
+#
+# Controls the multitaper spectrogram used as input to inference.
+# See SpectralConfig in joint_ssmt/config.py for full documentation.
+
+# Frequency grid
+freq_min: 1.0          # Hz — lower bound
+freq_max: 61.0         # Hz — upper bound
+freq_step: 1.0         # Hz — grid spacing
+
+# Multitaper window
+window_sec: 2.0        # seconds — window length (Δ_b in the paper)
+time_bandwidth: 2.0    # NW product (higher → smoother, lower resolution)
+
+# EM warm-start for OU parameters
+em_max_iter: 2000
+em_tol: 1.0e-6

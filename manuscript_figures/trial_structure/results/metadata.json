@@ -1,0 +1,63 @@
+{
+  "data": {
+    "n_trials": 100,
+    "n_units": 5,
+    "n_timepoints_lfp": 10000,
+    "n_timepoints_spk": 9800,
+    "n_blocks": 25,
+    "n_history_lags": 20,
+    "fs": 1000.0,
+    "delta_spk": 0.001
+  },
+  "ctssmt": {
+    "freq_min": 1.0,
+    "freq_max": 61.0,
+    "freq_step": 2.0,
+    "n_freqs": 30,
+    "window_sec": 0.4,
+    "NW": 1.0,
+    "n_tapers": 1,
+    "em_max_iter": 5000
+  },
+  "mcmc": {
+    "fixed_iter": 500,
+    "n_refreshes": 10,
+    "inner_steps": 200,
+    "trace_thin": 2,
+    "burn_in_frac": 0.7,
+    "n_samples": 1250
+  },
+  "detection": {
+    "use_wald_selection": true,
+    "wald_alpha": 0.05,
+    "use_shrinkage": true,
+    "standardize_latents": true,
+    "use_winsorization": true,
+    "winsorize_percentile": 95.0,
+    "n_significant_bands": 4
+  },
+  "output": {
+    "save_spectral": true,
+    "downsample_factor": 10
+  },
+  "timing": {
+    "elapsed_seconds": 628.8510670661926,
+    "timestamp": "2026-02-13T15:50:55"
+  },
+  "ground_truth": {
+    "freqs_hz": [
+      11.0,
+      19.0,
+      27.0,
+      43.0,
+      7.0,
+      35.0
+    ],
+    "freqs_hz_extra": [
+      7.0,
+      35.0
+    ],
+    "has_masks": true,
+    "has_beta_mag": false
+  }
+}
