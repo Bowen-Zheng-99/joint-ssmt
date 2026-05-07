@@ -1,0 +1,30 @@
+# Joint SSMT — Inference config (single-trial)
+#
+# Controls the MCMC (Gibbs + Polya-Gamma) sampler and coupling detection.
+# See InferenceConfig in joint_ssmt/config.py for full documentation.
+
+# MCMC structure
+warmup_iterations: 1000       # Gibbs iterations during warmup phase
+n_refresh_cycles: 5           # KF/RTS latent refresh cycles
+iterations_per_refresh: 200   # Gibbs iterations per refresh
+trace_thinning: 2             # keep every Nth sample
+burn_in_fraction: 0.6         # discard first 60% as burn-in
+
+# Spike history
+n_history_lags: 20            # autoregressive lags
+
+# Priors
+tau2_intercept: 25.0          # prior variance on β₀ (intercept)
+tau2_gamma: 625.0             # prior variance on γ (spike history)
+a0_ard: 0.5                   # ARD half-Cauchy shape
+b0_ard: 0.5                   # ARD half-Cauchy scale
+
+# Detection and regularization
+use_wald_band_selection: true # Wald-test band selection after warmup
+wald_alpha: 0.1               # significance level (per band)
+use_shrinkage: true           # ARD shrinkage on coupling coefficients
+
+# Latent inference
+standardize_latents: true
+freeze_intercept_during_refresh: true
+enable_latent_refresh: true

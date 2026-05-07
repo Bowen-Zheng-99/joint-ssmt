@@ -1,0 +1,26 @@
+__pycache__/
+*.pyc
+*.pyo
+*.nbc
+*.nbi
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.venv/
+.ruff_cache/
+results_single/
+results_trials/
+results/
+*.npz
+*.pkl
+test_outputs/
+.python-version
+uv.lock
+*.pdf
+.claude/
+manuscript_figures/**/figures/
+
+# allow the small bundled demo dataset (both copies)
+!examples/data/demo_dataset.npz
+!joint_ssmt/data/demo_dataset.npz

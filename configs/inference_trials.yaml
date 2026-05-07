@@ -1,0 +1,37 @@
+# Joint SSMT — Inference config (trial-structured)
+#
+# Trial-structured inference uses hierarchical decomposition (X + δ_r)
+# and may apply winsorization to stabilize multi-trial estimation.
+
+# MCMC structure
+warmup_iterations: 500
+n_refresh_cycles: 5
+iterations_per_refresh: 200
+trace_thinning: 2
+burn_in_fraction: 0.5
+
+# Spike history
+n_history_lags: 20
+
+# Priors (wider for trial data)
+tau2_intercept: 10000.0       # 100² — wide prior on baseline
+tau2_gamma: 625.0             # 25² — wide prior on spike history
+a0_ard: 0.01                  # aggressive sparsity
+b0_ard: 0.01
+sigma_u: 1.0                  # flat Normal on β
+
+# Detection
+use_wald_band_selection: true
+wald_alpha: 0.05
+use_shrinkage: false
+
+# Winsorization (cap extreme β magnitudes)
+use_winsorization: true
+winsorize_percentile: 95.0
+winsorize_after_warmup: true
+winsorize_after_refresh: true
+
+# Latent inference
+standardize_latents: true
+freeze_intercept_during_refresh: false
+enable_latent_refresh: true
