@@ -32,16 +32,6 @@ cd joint-ssmt
 pip install -e .
 ```
 
-### Notebook progress bars (optional)
-
-The example notebooks use `tqdm` progress bars. If Jupyter prints `IProgress not found` or otherwise complains about `ipywidgets`, install the widget extension:
-
-```bash
-pip install ipywidgets
-# or, with conda
-conda install -c conda-forge ipywidgets
-```
-
 ## Verify the install
 
 `joint_ssmt.test()` runs a short end-to-end pipeline (10 s synthetic data, brief inference) and checks the outputs. Takes about a minute on CPU.
