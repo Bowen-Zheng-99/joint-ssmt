@@ -16,13 +16,18 @@ authors = [
 dependencies = [
     "numpy>=1.24",
     "scipy>=1.10",
-    "jax[cuda12]>=0.4",
+    # JAX: Linux gets the CUDA 12 build (falls back to CPU at runtime if no GPU).
+    # macOS and Windows get plain jax + CPU jaxlib — there is no CUDA jaxlib for those platforms.
+    "jax[cuda12]>=0.4; sys_platform == 'linux'",
+    "jax>=0.4; sys_platform != 'linux'",
+    "jaxlib>=0.4; sys_platform != 'linux'",
     "numba>=0.57",
     "mne>=1.4",
     "tqdm>=4.60",
     "matplotlib>=3.7",
     "seaborn>=0.12",
     "pyyaml>=6.0",
+    "ipywidgets>=8.0",
 ]
 
 [project.scripts]

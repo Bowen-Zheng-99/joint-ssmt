@@ -6,7 +6,7 @@ Joint SSMT treats narrowband LFP activity as a latent process evolving in contin
 
 ## Installation
 
-Joint SSMT is built around JAX with CUDA 12. JAX falls back to CPU automatically at runtime if no GPU is available, so the same install works on machines without a GPU.
+Joint SSMT is built around JAX. On Linux, `pip` pulls in the CUDA 12 build automatically (JAX falls back to CPU at runtime if no GPU is present). On macOS and Windows, plain CPU JAX is installed. The same install command works on all three.
 
 ### conda
 
@@ -30,6 +30,16 @@ uv pip install "joint-ssmt @ git+https://github.com/Bowen-Zheng-99/joint-ssmt.gi
 git clone https://github.com/Bowen-Zheng-99/joint-ssmt.git
 cd joint-ssmt
 pip install -e .
+```
+
+### Notebook progress bars (optional)
+
+The example notebooks use `tqdm` progress bars. If Jupyter prints `IProgress not found` or otherwise complains about `ipywidgets`, install the widget extension:
+
+```bash
+pip install ipywidgets
+# or, with conda
+conda install -c conda-forge ipywidgets
 ```
 
 ## Verify the install
